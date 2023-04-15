@@ -1,4 +1,4 @@
-# vue3-time-tracker
+# Time Tracker app on Vue3
 
 Project for learning Vue3 with Composition API
 
@@ -18,10 +18,4 @@ yarn dev
 
 ```sh
 yarn build
-```
-
-### Lint
-
-```sh
-yarn lint
 ```

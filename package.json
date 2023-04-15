@@ -2,6 +2,8 @@
   "name": "vue3-time-tracker",
   "version": "0.0.1",
   "private": true,
+  "description": "Time tracker app for learning Vue3 with Composition API",
+  "keywords": ["vue", "vue3", "timetracker", "pet project", "learning", "composition api", "frontend"],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
