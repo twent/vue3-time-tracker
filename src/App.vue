@@ -1,7 +1,11 @@
 <script setup>
 import { ClockIcon, CheckCircleIcon, ListBulletIcon, ChartBarIcon } from '@heroicons/vue/24/outline'
 
-const navItems = ['timeline', 'activities', 'progress']
+const navItems = {
+  timeline: ClockIcon,
+  activities: ListBulletIcon,
+  progress: ChartBarIcon
+}
 </script>
 
 <template>
@@ -32,15 +36,13 @@ const navItems = ['timeline', 'activities', 'progress']
     <ul
       class="flex items-center justify-around gap-4 text-center text-xs font-semibold capitalize text-gray-600"
     >
-      <li v-for="page in navItems" class="flex-1">
+      <li v-for="(icon, page) in navItems" class="flex-1">
         <a
           :href="`#${page}`"
           :key="page"
           class="flex flex-col items-center gap-1 transition hover:text-purple-600"
         >
-          <ClockIcon v-if="page === 'timeline'" class="w-6" />
-          <ChartBarIcon v-else-if="page === 'activities'" class="w-6" />
-          <ListBulletIcon v-else-if="page === 'progress'" class="w-6" /> {{ page }}
+          <component :is="icon" class="w-6" /> {{ page }}
         </a>
       </li>
     </ul>
