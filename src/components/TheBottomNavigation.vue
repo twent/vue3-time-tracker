@@ -1,4 +1,5 @@
 <script setup>
+import NavItem from './NavItem.vue'
 import { ClockIcon, ListBulletIcon, ChartBarIcon } from '@heroicons/vue/24/outline'
 
 const navItems = {
@@ -13,15 +14,9 @@ const navItems = {
     <ul
       class="flex items-center justify-around gap-4 text-center text-xs font-semibold capitalize text-gray-600"
     >
-      <li v-for="(icon, page) in navItems" class="flex-1">
-        <a
-          :href="`#${page}`"
-          :key="page"
-          class="flex flex-col items-center gap-1 transition hover:text-purple-600"
-        >
-          <component :is="icon" class="w-6" /> {{ page }}
-        </a>
-      </li>
+      <NavItem v-for="(icon, page) in navItems" :href="`#${page}`" :key="page">
+        <component :is="icon" class="w-6" /> {{ page }}
+      </NavItem>
     </ul>
   </nav>
 </template>
