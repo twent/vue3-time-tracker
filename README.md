@@ -19,3 +19,5 @@ yarn dev
 ```sh
 yarn build
 ```
+
+> See on YouTube [Composition API Course](https://youtube.com/playlist?list=PL-FhWbGlJPfaCm9Qx7G9wQqtt2_yBT92V) by Igor Babko
