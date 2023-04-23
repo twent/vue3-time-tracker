@@ -1,5 +1,6 @@
 <script setup>
 import { PAGES } from './constants'
+import { normalizePageHash } from './functions'
 import { ref } from 'vue'
 import TheHeader from './components/TheHeader.vue'
 import TheBottomNavigation from './components/TheBottomNavigation.vue'
@@ -15,18 +16,6 @@ const navItems = {
 }
 
 const currentPage = ref(normalizePageHash())
-
-function normalizePageHash() {
-  let hash = window.location.hash.slice(1)
-
-  if (Object.keys(PAGES).includes(hash)) {
-    return hash
-  }
-
-  window.location.hash = PAGES.TIMELINE
-
-  return PAGES.TIMELINE
-}
 
 function goTo(page) {
   currentPage.value = page

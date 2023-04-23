@@ -1,17 +1,10 @@
 <script setup>
+import { NAV_ITEMS } from '../constants'
 import NavItem from './NavItem.vue'
-import { PAGES } from '../constants'
-import { ClockIcon, ListBulletIcon, ChartBarIcon } from '@heroicons/vue/24/outline'
 
 defineProps(['currentPage'])
 
 const emit = defineEmits(['pageChanged'])
-
-const navItems = {
-  [PAGES.TIMELINE]: ClockIcon,
-  [PAGES.ACTIVITIES]: ListBulletIcon,
-  [PAGES.PROGRESS]: ChartBarIcon
-}
 </script>
 
 <template>
@@ -21,7 +14,7 @@ const navItems = {
     >
       <NavItem
         @click="emit('pageChanged', page)"
-        v-for="(icon, page) in navItems"
+        v-for="(icon, page) in NAV_ITEMS"
         :href="`#${page}`"
         :key="page"
         :class="{ 'pointer-events-none text-purple-600': currentPage === page }"
