@@ -1,7 +1,12 @@
 <script setup>
 import BaseSelect from './BaseSelect.vue'
 
-const props = defineProps(['timelineItem'])
+const props = defineProps({
+  timelineItem: {
+    required: true,
+    type: Object
+  }
+})
 
 let classes = [
   props.timelineItem.hour === new Date().getHours()
@@ -24,7 +29,7 @@ const selectedActivity = options[4].value
 <template>
   <li class="relative flex flex-col gap-2 border-t border-gray-200 px-4 py-10">
     <a href="#" :class="classes">{{ timelineItem.hour }}:00 </a>
-    <BaseSelect :options="options" placeholder="Rest" :selected="selectedActivity" />
+    <BaseSelect :options="options" placeholder="Rest" />
   </li>
 </template>
 
