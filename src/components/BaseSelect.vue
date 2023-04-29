@@ -5,7 +5,12 @@ import { XMarkIcon } from '@heroicons/vue/24/outline'
 defineProps({
   options: {
     required: true,
-    type: Array
+    type: Array,
+    validator(options) {
+      return options.every(
+        ({ value, label }) => typeof value === 'string' && typeof label === 'string'
+      )
+    }
   },
   placeholder: {
     required: true,
