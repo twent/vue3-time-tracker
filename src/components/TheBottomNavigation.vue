@@ -11,7 +11,9 @@ defineProps({
   }
 })
 
-const emit = defineEmits(['pageChanged'])
+const emit = defineEmits({
+  pageChanged: isValidPage
+})
 </script>
 
 <template>

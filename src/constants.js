@@ -12,4 +12,5 @@ export const NAV_ITEMS = {
     [PAGES.PROGRESS]: ChartBarIcon
 }
 
+export const MIDNIGHT_HOUR = 0
 export const HOURS_IN_DAY = 24

@@ -2,10 +2,13 @@
 import TheLogo from './TheLogo.vue'
 import TheHeaderProgress from './TheHeaderProgress.vue'
 import { PAGES } from '../constants'
+import { isValidPage } from '../validators'
 
 defineProps(['currentPage'])
 
-const emit = defineEmits(['pageChanged'])
+const emit = defineEmits({
+  pageChanged: isValidPage
+})
 </script>
 
 <template>

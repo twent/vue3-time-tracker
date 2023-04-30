@@ -7,13 +7,6 @@ import TheBottomNavigation from './components/TheBottomNavigation.vue'
 import TheTimeline from './pages/TheTimeline.vue'
 import TheActivities from './pages/TheActivities.vue'
 import TheProgress from './pages/TheProgress.vue'
-import { ClockIcon, ListBulletIcon, ChartBarIcon } from '@heroicons/vue/24/outline'
-
-const navItems = {
-  [PAGES.TIMELINE]: ClockIcon,
-  [PAGES.ACTIVITIES]: ListBulletIcon,
-  [PAGES.PROGRESS]: ChartBarIcon
-}
 
 const currentPage = ref(normalizePageHash())
 
