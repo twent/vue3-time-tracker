@@ -1,4 +1,7 @@
 <script setup>
+import { ref } from 'vue'
+
+import { ACTIVITIES_OPTIONS } from '../constants'
 import { isValidTimilineItem } from '../validators'
 import BaseSelect from './BaseSelect.vue'
 
@@ -16,20 +19,18 @@ let classes = [
     : 'bg-gray-100 text-gray-600'
 ]
 
-const options = [
-  { value: 'coding', label: 'Coding' },
-  { value: 'cooking', label: 'Cooking' },
-  { value: 'working', label: 'Working' },
-  { value: 'hiking', label: 'Hiking' },
-  { value: 'cycling', label: 'Cycling' },
-  { value: 'reading', label: 'Reading' }
-]
+let selected = ref('')
 </script>
 
 <template>
   <li class="relative flex flex-col gap-2 border-t border-gray-200 px-4 py-10">
     <a href="#" :class="classes">{{ timelineItem.hour }}:00 </a>
-    <BaseSelect :options="options" placeholder="Rest" />
+    <BaseSelect
+      :options="ACTIVITIES_OPTIONS"
+      placeholder="Rest"
+      @option-selected="selected = $event"
+      :selected="selected"
+    />
   </li>
 </template>
 

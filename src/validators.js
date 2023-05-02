@@ -1,7 +1,11 @@
-import { PAGES, HOURS_IN_DAY, MIDNIGHT_HOUR } from "./constants";
+import { PAGES, HOURS_IN_DAY, MIDNIGHT_HOUR, ACTIVITIES } from "./constants";
 
 export function isValidPage(page) {
     return Object.values(PAGES).includes(page)
+}
+
+export function isValidActivity(activity) {
+    return ACTIVITIES.includes(activity)
 }
 
 export function validateTimelineItems(timelineItems) {
