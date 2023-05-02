@@ -24,8 +24,6 @@ const options = [
   { value: 'cycling', label: 'Cycling' },
   { value: 'reading', label: 'Reading' }
 ]
-
-const selectedActivity = options[4].value
 </script>
 
 <template>
