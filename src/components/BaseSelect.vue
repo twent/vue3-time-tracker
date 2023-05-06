@@ -1,9 +1,10 @@
 <script setup>
-import { isValidActivity, validateSelectOptions } from '../validators'
+import { computed } from 'vue'
+import { isValidActivityOrNull, validateSelectOptions, isUndefinedOrNull } from '../validators'
 import BaseButton from './BaseButton.vue'
 import { XMarkIcon } from '@heroicons/vue/24/outline'
 
-defineProps({
+const props = defineProps({
   options: {
     required: true,
     type: Array,
@@ -17,8 +18,10 @@ defineProps({
 })
 
 const emit = defineEmits({
-  optionSelected: isValidActivity
+  optionSelected: isValidActivityOrNull
 })
+
+const isNotSelected = computed(() => isUndefinedOrNull(props.selected))
 </script>
 
 <template>
@@ -27,7 +30,9 @@ const emit = defineEmits({
       @change="emit('optionSelected', $event.target.value)"
       class="w-full truncate rounded bg-gray-100 px-2 py-1 text-2xl"
     >
-      <option value="" selected>{{ placeholder }}</option>
+      <option value="" :selected="isNotSelected" disabled>
+        {{ placeholder }}
+      </option>
       <option
         v-for="{ value, label } in options"
         :key="value"

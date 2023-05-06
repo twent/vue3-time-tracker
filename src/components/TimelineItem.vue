@@ -19,7 +19,7 @@ let classes = [
     : 'bg-gray-100 text-gray-600'
 ]
 
-let selected = ref('')
+let selected = ref()
 </script>
 
 <template>
