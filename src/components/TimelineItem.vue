@@ -4,8 +4,9 @@ import { ref } from 'vue'
 import { ACTIVITIES_OPTIONS } from '../constants'
 import { isValidTimilineItem } from '../validators'
 import BaseSelect from './BaseSelect.vue'
+import TimelineHour from './TimelineHour.vue'
 
-const props = defineProps({
+defineProps({
   timelineItem: {
     required: true,
     type: Object,
@@ -13,18 +14,12 @@ const props = defineProps({
   }
 })
 
-let classes = [
-  props.timelineItem.hour === new Date().getHours()
-    ? 'bg-green-600 font-bold text-white'
-    : 'bg-gray-100 text-gray-600'
-]
-
 let selected = ref()
 </script>
 
 <template>
   <li class="relative flex flex-col gap-2 border-t border-gray-200 px-4 py-10">
-    <a href="#" :class="classes">{{ timelineItem.hour }}:00 </a>
+    <TimelineHour :hour="timelineItem.hour" />
     <BaseSelect
       :options="ACTIVITIES_OPTIONS"
       placeholder="Rest"
