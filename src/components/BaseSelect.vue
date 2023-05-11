@@ -7,8 +7,8 @@ import { XMarkIcon } from '@heroicons/vue/24/outline'
 const props = defineProps({
   options: {
     required: true,
-    type: Array,
-    validator: validateSelectOptions
+    type: Array
+    // validator: validateSelectOptions
   },
   placeholder: {
     required: true,
@@ -17,9 +17,10 @@ const props = defineProps({
   selected: String
 })
 
-const emit = defineEmits({
-  optionSelected: isValidActivityOrNull
-})
+const emit = defineEmits(['optionSelected'])
+// const emit = defineEmits({
+//   optionSelected: isValidActivityOrNull
+// })
 
 const isNotSelected = computed(() => isUndefinedOrNull(props.selected))
 </script>
