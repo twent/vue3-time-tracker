@@ -1,4 +1,4 @@
-import { PAGES, HOURS_IN_DAY, MIDNIGHT_HOUR, ACTIVITIES } from "./constants";
+import { PAGES, HOURS_IN_DAY, MIDNIGHT_HOUR } from "./constants";
 
 export function isNull(value) {
     return value === null
@@ -20,6 +20,10 @@ export function isString(value) {
     return typeof value === 'string'
 }
 
+export function isNotEmptyString(value) {
+    return isString(value) && value.length > 0
+}
+
 function isNumberBetween(value, start, end) {
     return value >= start && value <= end
 }
@@ -33,11 +37,15 @@ export function isValidPage(page) {
 }
 
 export function isValidActivity(activity) {
-    return ACTIVITIES.includes(activity)
+    return isNotEmptyString(activity)
 }
 
 export function isValidActivityOrNull(activity) {
     return isValidActivity(activity) || isNull(activity)
+}
+
+export function validateActivities(activities) {
+    return activities.every(isValidActivity)
 }
 
 export function validateTimelineItems(timelineItems) {

@@ -1,14 +1,16 @@
 <script setup>
 import { ref } from 'vue'
-import { periodSelectOptions } from '../constants'
+import { PERIOD_SELECTED_OPTIONS } from '../constants'
 import { TrashIcon } from '@heroicons/vue/24/outline'
 import BaseButton from '../components/BaseButton.vue'
 import BaseSelect from '../components/BaseSelect.vue'
+import { isValidActivity } from '../validators'
 
 defineProps({
   activity: {
     required: true,
-    type: String
+    type: String,
+    validator: isValidActivity
   }
 })
 
@@ -27,7 +29,7 @@ const minutesToComplete = ref()
       <BaseSelect
         class="font-mono"
         placeholder="HH:MM"
-        :options="periodSelectOptions"
+        :options="PERIOD_SELECTED_OPTIONS"
         :selected="minutesToComplete"
         @option-selected="minutesToComplete = $event"
       />
