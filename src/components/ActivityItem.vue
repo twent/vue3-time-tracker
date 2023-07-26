@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { PERIOD_SELECTED_OPTIONS } from '../constants'
+import { BUTTON_TYPE_DANGER, PERIOD_SELECTED_OPTIONS } from '../constants'
 import { TrashIcon } from '@heroicons/vue/24/outline'
 import BaseButton from '../components/BaseButton.vue'
 import BaseSelect from '../components/BaseSelect.vue'
@@ -21,7 +21,7 @@ const minutesToComplete = ref()
   <li class="flex flex-col gap-2 p-4">
     <div class="flex items-center justify-between gap-2">
       <span class="activity-title truncate text-2xl text-purple-900">{{ activity }}</span>
-      <BaseButton>
+      <BaseButton :type="BUTTON_TYPE_DANGER">
         <TrashIcon class="h-8" />
       </BaseButton>
     </div>

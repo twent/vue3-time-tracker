@@ -1,4 +1,4 @@
-import { PAGES, HOURS_IN_DAY, MIDNIGHT_HOUR } from "./constants";
+import { PAGES, HOURS_IN_DAY, MIDNIGHT_HOUR, BUTTON_TYPES } from "./constants";
 
 export function isNull(value) {
     return value === null
@@ -26,6 +26,10 @@ export function isNotEmptyString(value) {
 
 function isNumberBetween(value, start, end) {
     return value >= start && value <= end
+}
+
+export function isValidButtonType(type) {
+    return BUTTON_TYPES.includes(type)
 }
 
 export function isValidHour(hour) {
