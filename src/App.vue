@@ -1,7 +1,7 @@
 <script setup>
+import { ref } from 'vue'
 import { PAGES } from './constants'
 import { normalizePageHash, generateTimelineItems, generateActivityOptions } from './functions'
-import { ref } from 'vue'
 import TheHeader from './components/TheHeader.vue'
 import TheBottomNavigation from './components/TheBottomNavigation.vue'
 import TheTimeline from './pages/TheTimeline.vue'
@@ -12,12 +12,16 @@ const currentPage = ref(normalizePageHash())
 
 const timelineItems = generateTimelineItems()
 
-const activities = ['Coding', 'Cooking', 'Working', 'Hiking', 'Cycling', 'Reading']
+const activities = ref(['Coding', 'Cooking', 'Working', 'Hiking', 'Cycling', 'Reading'])
 
-const activityOptions = generateActivityOptions(activities)
+const activityOptions = generateActivityOptions(activities.value)
 
 function goTo(page) {
   currentPage.value = page
+}
+
+function deleteActivity(activity) {
+  activities.value.splice(activities.value.indexOf(activity), 1)
 }
 </script>
 
@@ -30,7 +34,11 @@ function goTo(page) {
       :timeline-items="timelineItems"
       :activity-options="activityOptions"
     />
-    <TheActivities v-show="currentPage === PAGES.ACTIVITIES" :activities="activities" />
+    <TheActivities
+      v-show="currentPage === PAGES.ACTIVITIES"
+      :activities="activities"
+      @delete-activity="deleteActivity"
+    />
     <TheProgress v-show="currentPage === PAGES.PROGRESS" />
   </main>
 

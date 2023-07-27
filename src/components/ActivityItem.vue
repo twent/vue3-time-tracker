@@ -4,7 +4,7 @@ import { BUTTON_TYPE_DANGER, PERIOD_SELECTED_OPTIONS } from '../constants'
 import { TrashIcon } from '@heroicons/vue/24/outline'
 import BaseButton from '../components/BaseButton.vue'
 import BaseSelect from '../components/BaseSelect.vue'
-import { isValidActivity } from '../validators'
+import { isUndefined, isValidActivity } from '../validators'
 
 defineProps({
   activity: {
@@ -14,6 +14,10 @@ defineProps({
   }
 })
 
+const emit = defineEmits({
+  delete: isUndefined
+})
+
 const minutesToComplete = ref()
 </script>
 
@@ -21,7 +25,7 @@ const minutesToComplete = ref()
   <li class="flex flex-col gap-2 p-4">
     <div class="flex items-center justify-between gap-2">
       <span class="activity-title truncate text-2xl text-purple-900">{{ activity }}</span>
-      <BaseButton :type="BUTTON_TYPE_DANGER">
+      <BaseButton :type="BUTTON_TYPE_DANGER" @click="emit('delete')">
         <TrashIcon class="h-8" />
       </BaseButton>
     </div>
