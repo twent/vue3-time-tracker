@@ -24,15 +24,6 @@ export const NAV_ITEMS = {
     [PAGES.PROGRESS]: ChartBarIcon
 }
 
-export const ACTIVITIES_OPTIONS = [
-    { value: 'coding', label: 'Coding' },
-    { value: 'cooking', label: 'Cooking' },
-    { value: 'working', label: 'Working' },
-    { value: 'hiking', label: 'Hiking' },
-    { value: 'cycling', label: 'Cycling' },
-    { value: 'reading', label: 'Reading' }
-]
-
 export const PERIOD_SELECTED_OPTIONS = [
     {
       value: 10,

@@ -7,14 +7,14 @@ import { XMarkIcon } from '@heroicons/vue/24/outline'
 const props = defineProps({
   options: {
     required: true,
-    type: Array
-    // validator: validateSelectOptions
+    type: Array,
+    validator: validateSelectOptions
   },
   placeholder: {
     required: true,
     type: String
   },
-  selected: String
+  selected: Number | String
 })
 
 const emit = defineEmits(['optionSelected'])

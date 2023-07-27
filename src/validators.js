@@ -65,5 +65,5 @@ export function validateSelectOptions(options) {
   }
 
 function isValidSelectOption({ value, label }) {
-    return isString(value) && isString(label)
+    return isNumber(value) && isNotEmptyString(label)
 }
