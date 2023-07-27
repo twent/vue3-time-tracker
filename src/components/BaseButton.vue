@@ -1,6 +1,4 @@
-<script setup>
-import { isValidButtonType } from '../validators'
-
+<script>
 import {
   BUTTON_TYPE_NEUTRAL,
   BUTTON_TYPE_DANGER,
@@ -14,6 +12,10 @@ const typeClasses = {
   [BUTTON_TYPE_SUCCESS]: 'bg-green-500 enabled:hover:bg-green-400 text-white',
   [BUTTON_TYPE_INFO]: 'bg-blue-300 enabled:hover:bg-blue-400'
 }
+</script>
+
+<script setup>
+import { isValidButtonType } from '../validators'
 
 defineProps({
   type: {
